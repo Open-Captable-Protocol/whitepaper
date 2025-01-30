@@ -1,3 +1,5 @@
+# Open Captable Protocol (OCP) Whitepaper
+
 ### VS Code Setup
 
 1. Install the "LaTeX Workshop" extension by James Yu
