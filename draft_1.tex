@@ -1,12 +1,5 @@
 \documentclass[11pt,a4paper]{article}
 
-% At the very top of your file, after \documentclass
-\usepackage{import}
-% Add this directive to specify output directory
-\makeatletter
-\@ifundefined{outputdir}{\def\outputdir{build}}{}
-\makeatother
-
 % Essential packages
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
@@ -23,7 +16,7 @@
 }
 
 % Title information
-\title{\textbf{Open Captable Protocol (OCP):\\A Blockchain-Based Solution for Security Transfer Management}}
+\title{\textbf{Open Captable Protocol (OCP):\\An Interopable Solution for Securities Settlement and Captable Management Onchain}}
 \author{Victor Mimo}
 \date{\today}
 
@@ -35,43 +28,219 @@
 The Open Captable Protocol (OCP) introduces a revolutionary approach to managing capitalization tables through blockchain technology. This paper presents a comprehensive solution that bridges the gap between traditional security transfer systems and modern blockchain capabilities, while maintaining compliance and data privacy standards.
 \end{abstract}
 
-\section{Transfer Agents, Past and Future}
-[Your content will go here about the history of transfer agents]
-
-\section{Problem Background}
-Current challenges in security transfer management include:
+\section{Introduction}
+\subsection{The Gap Between Web3 \& Securities Settlement}
 \begin{itemize}
-    \item Market smart contracts for securities cannot settle onchain due to offchain record keeping
-    \item Ownership verification cannot be proven onchain as tokens do not represent ownership records
+    \item Securities settlement remains primarily off-chain and fragmented, limiting interoperability.
+    \item This is a problem because Web3 thrives on interoperability and permissionless (or sufficiently permissionless) actions.
+    \item Wallets, DeFi, and protocols interoperate, yet captables remain siloed in Web2.
+    \item Every crypto company today still uses Web2 databases to track cap tables.
+    \item Even Coinbase explored going public on-chain but was laughed at (Coin documentary).
+    \begin{itemize}
+        \item This wasn't about captables---it was about the missing financial infrastructure (investment banks, liquidity, etc.).
+    \end{itemize}
+    \item On-chain captables seem unrealistic today---but why?
+    \begin{itemize}
+        \item Is it cost? Regulation? Lack of a standard?
+    \end{itemize}
+    \item Blockchains enable clearing, but settlement is still undefined.
+    \item There is no standard on-chain framework for tracking securities ownership.
+    \item Some have proposed hybrid approaches---such as Balaji's ``Mirrortables'' (2021), which mirrored Web2 cap tables on-chain.
+    \begin{itemize}
+        \item But mirroring isn't enough---it still treats legacy systems as primary.
+        \item OCP flips this model: on-chain becomes the source of truth, and legacy systems can export into OCP---but OCP does not rely on them.
+    \end{itemize}
+    \item The missing piece isn't just technical---it's about adoption.
+    \begin{itemize}
+        \item To bring securities fully on-chain, we need to invest in this infrastructure today.
+    \end{itemize}
+    \item \textit{[Note: Settlement layers today: Tokenized securities exist on Base, Polygon, Solana, Ethereum---what's the right layer?]}
 \end{itemize}
 
-\section{OCP Introduction}
-The Open Captable Protocol consists of two primary components:
+\subsection{What OCP Solves}
 \begin{itemize}
-    \item Offchain component (server)
-    \item Onchain component (smart contracts)
+    \item Built on Open Captable Format (OCF), a trusted and widely adopted standard in Web2.
+    \item A fully on-chain, event-driven captable that is immutable, auditable, efficient, and scalable.
+    \item Future-proofed to support more asset types as tokenized finance expands.
+    \item Interoperable securities that protocols can integrate with natively for seamless ownership tracking and trading.
+    \item Already in production, tracking over \$1B in private assets.
 \end{itemize}
 
-\subsection{Smart Contracts}
-OCP implements the Diamond Pattern architecture on EVM to partition captable functionality into facets. This approach enables:
+\section{Event-Based Smart Contract Captable}
+\subsection{Common Misconceptions and Reality}
 \begin{itemize}
-    \item Modular functionality distribution
-    \item Efficient gas cost management
-    \item Flexible bytecode size management
+    \item Captables are widely seen as a boring back-office necessity---whether they live in Excel, a database, or a SaaS platform, they ``just exist'' and don't add value.
+    \item Many assume putting captables on-chain is unnecessary---they see it as over-engineering something that doesn't need innovation.
+    \item People think captables ``get in the way'' of trading---a compliance burden that doesn't contribute to market efficiency.
+    \item But an on-chain captable isn't just a better record-keeping tool---it creates a network of interoperable securities.
+    \item Read \& write permissions are granted/removed with code, making securities management programmable and composable.
+    \item This isn't just about tracking ownership---it's about making ownership actionable across protocols.
+    \item People once thought fiat currency didn't need to be on-chain---but stablecoins changed that. OCP does the same for securities.
 \end{itemize}
 
-[Continue with your content...]
+\section{OCP's Breakthrough}
+\begin{itemize}
+    \item \textbf{OCP is Fully Native \& Modular (Cross-Chain Compatible)}
+    \begin{itemize}
+        \item Unlike hybrid models that mirror Web2, OCP is fully native---legacy systems can export into OCP, but OCP does not rely on them.
+        \item OCP's architecture is modular, meaning the core framework works across blockchains.
+    \end{itemize}
 
-\section{Server Architecture}
-[Your server content...]
+    \item \textbf{Event-Driven Captables as the Core Model}
+    \begin{itemize}
+        \item Captables derive state from event-driven transactions, rather than mutable records.
+        \item ActivePositions tracks ownership without external oracles or unnecessary disclosure.
+        \item New facets (EVM) or programs (Solana) can be added dynamically to support evolving financial models.
+    \end{itemize}
 
-\section{Compliance}
-[Your compliance content...]
+    \item \textbf{Blockchain-Specific Implementations}
+    \begin{itemize}
+        \item On EVM, we use the Diamond Architecture to enable scalable, gas-efficient captable growth.
+        \item On Solana \& other chains, different scaling methods will be used, but the core OCP model remains the same.
+        \item This ensures OCP is future-proof, allowing it to evolve as blockchain architectures improve.
+    \end{itemize}
+\end{itemize}
 
-\section{Real World Usage}
-[Your usage scenarios...]
+\section{Why This Is a Fundamental Shift}
+\begin{itemize}
+    \item \textbf{Securities as Interoperable Financial Primitives}
+    \begin{itemize}
+        \item In Web2, captables are static records that sit in private databases.
+        \item In OCP, ownership can be used in smart contracts, DeFi, DAOs, and programmable markets.
+        \item Just as stablecoins made fiat programmable, OCP makes securities programmable.
+    \end{itemize}
 
-\section{Use Cases Unblocked}
-[Your use cases...]
+    \item \textbf{From Compliance Burden to Programmable Governance}
+    \begin{itemize}
+        \item Traditionally, captables are compliance-first---designed for filings, not flexibility.
+        \item With OCP, ownership is a live data layer, where permissions, governance, and transfers can be enforced at the smart contract level.
+        \item This removes operational overhead while maintaining regulatory compliance.
+    \end{itemize}
+
+    \item \textbf{A New Layer for Capital Markets}
+    \begin{itemize}
+        \item Traditional finance is stuck with slow, fragmented infrastructure.
+        \item OCP lays the foundation for real-time settlement, multi-chain securities, and global capital formation.
+    \end{itemize}
+
+    \item \textbf{No More Vendor Lock-In: Full Ownership Control}
+    \begin{itemize}
+        \item In Web2, switching cap table providers (e.g., Carta $\rightarrow$ Pulley) requires a full export and legal migration.
+        \item With OCP, switching services doesn't require migration---just an ownership update on an already-deployed captable.
+        \item Companies stay in control, eliminating data lock-in and making cap tables truly portable.
+    \end{itemize}
+\end{itemize}
+
+\section{Interoperability}
+
+\subsection{Two Types of Interoperability}
+
+\textbf{1. Protocol-Level Interoperability:}
+\begin{itemize}
+    \item OCP isn't just a captable---it's a financial primitive that other protocols can build on.
+    \item Other protocols (e.g., broker-dealers, issuance platforms, automated market makers) can become operators in OCP.
+    \item RBAC (Role-Based Access Control) enables fine-grained permissioning, allowing external protocols to execute actions on behalf of an entity.
+    \begin{itemize}
+        \item Example: A solar security issuance protocol can let a trading platform handle secondary transactions without needing a full export of captable data.
+        \item Example: A DeFi lending protocol can verify holdings in OCP to enable tokenized securities as collateral without requiring manual attestations.
+    \end{itemize}
+    \item This removes the bottlenecks of traditional financial reconciliation, where counterparties need manual data access---OCP makes securities live, programmable, and interoperable.
+\end{itemize}
+
+\textbf{2. Proof-of-Ownership with StakeholderNFT:}
+\begin{itemize}
+    \item OCP is extensible---protocols can build new layers on top of the captable.
+    \item StakeholderNFT is one example of how ownership can be used beyond record-keeping.
+    \item Investors can mint an NFT that dynamically reflects their holdings---proving ownership without exposing sensitive details.
+    \begin{itemize}
+        \item Privacy-Preserving: An investor can prove they hold shares in a company without revealing the exact number or valuation.
+        \item Useful for governance, token-gated access, and reputation-based systems where full transparency isn't needed.
+    \end{itemize}
+    \item This enables governance, token-gated apps, identity verification, and DeFi collateralization.
+    \item \textbf{Key Takeaway:} Ownership on OCP isn't just a static database entry---it's composable, verifiable, and programmable.
+\end{itemize}
+
+\section{Future Challenges and Long-term Vision}
+
+\subsection{The Problem: Multi-Chain Market Contracts, Fragmented Settlement}
+\begin{itemize}
+    \item A solar field protocol deploys market contracts across multiple blockchains to maximize liquidity.
+    \item Each chain records trades, but settlement needs to be unified.
+    \item Right now, options might be:
+    \begin{itemize}
+        \item Deploying the captable on each chain (inefficient, complex).
+        \item Using oracles or bridging solutions (potential trust assumptions).
+    \end{itemize}
+\end{itemize}
+
+\subsection{The Vision: One Source of Truth for Settlement}
+\begin{itemize}
+    \item Whether a security is traded on Ethereum, Solana, Base, or another chain, there's one final authoritative record.
+    \item The captable itself isn't fragmented---it syncs updates from multiple chains back to a unified source of truth.
+\end{itemize}
+
+\subsection{Three Possible Approaches to Achieving This Vision}
+
+\subsubsection{1. Circle-Style API Model (Centralized Syncing \& On-Chain Settlement)}
+\begin{itemize}
+    \item A single entity (e.g., OCP Foundation) provides a cross-chain settlement API, similar to Circle's CCTP for USDC.
+    \item Market contracts on multiple chains submit settlement events to a centralized service, which updates the captable.
+    \item Smart contracts call the API to ensure on-chain finality, reducing fragmentation.
+    \item \textbf{Challenges:}
+    \begin{itemize}
+        \item Requires a Web2 component (API calls).
+        \item Introduces trust assumptions similar to how USDC relies on Circle.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{2. On-Chain Cross-Chain Messaging (LayerZero/IBC-Style)}
+\begin{itemize}
+    \item Uses cross-chain messaging protocols like LayerZero, Axelar, or IBC to relay settlement updates between chains.
+    \item Ownership is only updated when messages are verified by the captable contract on the primary chain.
+    \item \textbf{Challenges:}
+    \begin{itemize}
+        \item Cross-chain bridges have security risks.
+        \item Latency and finality differences between chains could cause syncing delays.
+        \item Gas costs could be prohibitively high.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{3. A Global Settlement Chain (Celestia-Style)}
+\begin{itemize}
+    \item Instead of choosing a specific blockchain like Ethereum or Solana, OCP could operate on a dedicated ``Settlement Layer.''
+    \item Every trade on any chain must be reported to this single ledger, which serves as the canonical source of truth.
+    \item Other chains would read from this chain when validating ownership.
+    \item \textbf{Challenges:}
+    \begin{itemize}
+        \item Requires industry adoption---getting every protocol to agree on a single ledger is difficult.
+        \item Gas fees---every security transaction needs to be committed to this chain.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Next Steps \& Research Areas}
+\begin{itemize}
+    \item Initially, OCP may explore the Circle-Style API model, as it is the most feasible short-term solution.
+    \item Over time, cross-chain messaging or a dedicated settlement layer may provide a more trustless and decentralized approach.
+    \item A key research focus is defining finality across multiple chains and determining how settlement syncs without fragmentation.
+\end{itemize}
+
+\section{Implementation and Adoption Strategy}
+\subsection{OCP’s Open-Source Model}
+\begin{itemize}
+    \item Not a company, not a closed system—OCP is a free, open-source standard.
+    \item Already in production, tracking over \$1B in private assets.
+\end{itemize}
+
+\subsection{What’s Next?}
+\begin{itemize}
+    \item Further adoption among issuers, broker-dealers, and DeFi protocols.
+    \item Potential token model (TBD) to incentivize network effects.
+\end{itemize}
+
+\section{Conclusion}
+\textbf{Call to Action:}
+\begin{itemize}
+    \item OCP is live—join the movement to bring securities fully on-chain.
+\end{itemize}
 
 \end{document}
