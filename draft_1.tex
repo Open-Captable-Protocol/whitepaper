@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper]{article}
+
+% At the very top of your file, after \documentclass
+\usepackage{import}
+% Add this directive to specify output directory
+\makeatletter
+\@ifundefined{outputdir}{\def\outputdir{build}}{}
+\makeatother
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry}
+
+% Document styling
+\geometry{
+    a4paper,
+    margin=1in
+}
+
+% Title information
+\title{\textbf{Open Captable Protocol (OCP):\\A Blockchain-Based Solution for Security Transfer Management}}
+\author{Victor Mimo}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The Open Captable Protocol (OCP) introduces a revolutionary approach to managing capitalization tables through blockchain technology. This paper presents a comprehensive solution that bridges the gap between traditional security transfer systems and modern blockchain capabilities, while maintaining compliance and data privacy standards.
+\end{abstract}
+
+\section{Transfer Agents, Past and Future}
+[Your content will go here about the history of transfer agents]
+
+\section{Problem Background}
+Current challenges in security transfer management include:
+\begin{itemize}
+    \item Market smart contracts for securities cannot settle onchain due to offchain record keeping
+    \item Ownership verification cannot be proven onchain as tokens do not represent ownership records
+\end{itemize}
+
+\section{OCP Introduction}
+The Open Captable Protocol consists of two primary components:
+\begin{itemize}
+    \item Offchain component (server)
+    \item Onchain component (smart contracts)
+\end{itemize}
+
+\subsection{Smart Contracts}
+OCP implements the Diamond Pattern architecture on EVM to partition captable functionality into facets. This approach enables:
+\begin{itemize}
+    \item Modular functionality distribution
+    \item Efficient gas cost management
+    \item Flexible bytecode size management
+\end{itemize}
+
+[Continue with your content...]
+
+\section{Server Architecture}
+[Your server content...]
+
+\section{Compliance}
+[Your compliance content...]
+
+\section{Real World Usage}
+[Your usage scenarios...]
+
+\section{Use Cases Unblocked}
+[Your use cases...]
+
+\end{document}

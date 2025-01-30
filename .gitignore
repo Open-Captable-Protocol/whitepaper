@@ -1,0 +1,41 @@
+# LaTeX build directory
+/build/
+
+# LaTeX temporary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.synctex(busy)
+*.pdfsync
+*.bbl
+*.blg
+
+# LaTeX output files (uncomment if you want to ignore PDFs)
+# *.pdf
+
+# LaTeX build tools
+*.fot
+*.toc
+*.dvi
+*.ps
+
+# LaTeX Beamer
+*.nav
+*.pre
+*.snm
+*.vrb
+
+# Editor backup files
+*~
+*.backup
+*.swp
+.DS_Store
+
+# IDE specific files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+.idea/* 

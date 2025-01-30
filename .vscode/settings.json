@@ -1,0 +1,61 @@
+{
+    "latex-workshop.latex.outDir": "%DIR%",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-auxdir=%DIR%/build",
+                "-outdir=%DIR%",
+                "-g",
+                "%DOC%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
+        }
+    ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "[latex]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "latex-workshop.latexindent.path": "latexindent",
+    "latex-workshop.formatting.latex.formatter": "latexindent",
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.snm",
+        "*.nav",
+        "*.dvi"
+    ],
+    "latex-workshop.latex.autoClean.run": "onFailed",
+    "latex-workshop.view.pdf.refresh.viewer.enabled": true,
+    "latex-workshop.view.pdf.refresh.method": "auto"
+}
